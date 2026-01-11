@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | First Over the Line Strategies</title>
+    <meta name="description" content="Case studies and examples of technology strategy and leadership engagements.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            padding: var(--space-2xl) 0;
+        }
+        
+        .work-card {
+            background: var(--steel-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all var(--transition-base);
+        }
+        
+        .work-card:hover {
+            border-color: var(--racing-red);
+            transform: translateY(-4px);
+        }
+        
+        .work-card-image {
+            aspect-ratio: 16/9;
+            background: var(--midnight);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .work-card-content {
+            padding: var(--space-md);
+        }
+        
+        .work-card-tag {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: rgba(196, 58, 49, 0.15);
+            color: var(--racing-red);
+            border-radius: 2px;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .work-card h3 {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .work-card p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        
+        .work-placeholder {
+            text-align: center;
+            padding: var(--space-2xl);
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 768px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="First Over the Line Strategies" class="logo-img">
+                <span class="logo-text">FIRST<span class="logo-accent">OVER</span></span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="what-we-do.html">What We Do</a></li>
+                <li><a href="who-we-are.html">Who We Are</a></li>
+                <li><a href="our-work.html" class="active">Our Work</a></li>
+                <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Our Work</h1>
+            <p class="lead">Selected engagements and outcomes.</p>
+        </div>
+    </header>
+
+    <!-- Work Section -->
+    <section class="services">
+        <div class="container">
+            
+            <!-- Placeholder content - replace with actual case studies -->
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-card-image">Case Study Image</div>
+                    <div class="work-card-content">
+                        <span class="work-card-tag">Fractional CTO</span>
+                        <h3>Growth-Stage SaaS Company</h3>
+                        <p>Established technology function and operating model, enabling 3x growth without proportional headcount increase.</p>
+                    </div>
+                </div>
+                
+                <div class="work-card">
+                    <div class="work-card-image">Case Study Image</div>
+                    <div class="work-card-content">
+                        <span class="work-card-tag">Strategy</span>
+                        <h3>PE Portfolio Company</h3>
+                        <p>Technology due diligence and 100-day plan execution, identifying $2M in cost optimization opportunities.</p>
+                    </div>
+                </div>
+                
+                <div class="work-card">
+                    <div class="work-card-image">Case Study Image</div>
+                    <div class="work-card-content">
+                        <span class="work-card-tag">Transformation</span>
+                        <h3>Enterprise Manufacturer</h3>
+                        <p>Led technology operating model redesign, reducing delivery cycle time by 40% and improving business alignment.</p>
+                    </div>
+                </div>
+                
+                <div class="work-card">
+                    <div class="work-card-image">Case Study Image</div>
+                    <div class="work-card-content">
+                        <span class="work-card-tag">Cost Discipline</span>
+                        <h3>Healthcare Services</h3>
+                        <p>Application portfolio rationalization resulting in 25% reduction in technology spend while improving capability coverage.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="work-placeholder">
+                <p>Detailed case studies coming soon. <a href="contact.html" style="color: var(--racing-red);">Contact us</a> to discuss specific examples relevant to your situation.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to see results like these?</h2>
+                <p>Let's discuss how we can help you achieve your technology and business objectives.</p>
+                <a href="contact.html" class="btn btn-primary btn-large">
+                    Start a Conversation
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="First Over the Line Strategies" class="footer-logo">
+                    <p class="footer-tagline">Strategy built to finish.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="what-we-do.html">What We Do</a></li>
+                            <li><a href="who-we-are.html">Who We Are</a></li>
+                            <li><a href="our-work.html">Our Work</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="/cdn-cgi/l/email-protection#8eede1e2e7e0cee8e7fcfdfae1f8ebfca0efe7"><span class="__cf_email__" data-cfemail="c5a6aaa9acab85a3acb7b6b1aab3a0b7eba4ac">[email&#160;protected]</span></a></li>
+                            <li><a href="tel:+17402587151">(740) 258-7151</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 First Over the Line Strat

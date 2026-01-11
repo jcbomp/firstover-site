@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Over the Line Strategies | Strategy Built to Finish</title>
+    <meta name="description" content="We help leaders make clear decisions, move with intent, and execute — so they're first over the line when it matters.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="First Over the Line Strategies" class="logo-img">
+                <span class="logo-text">FIRST<span class="logo-accent">OVER</span></span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="what-we-do.html">What We Do</a></li>
+                <li><a href="who-we-are.html">Who We Are</a></li>
+                <!-- <li><a href="our-work.html">Our Work</a></li> -->
+                <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-line"></div>
+            <div class="hero-line hero-line-2"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">Technology Strategy & Leadership</div>
+            <h1 class="hero-title">
+                Strategy built<br>
+                <span class="hero-accent">to finish.</span>
+            </h1>
+            <p class="hero-subtitle">
+                We help leaders make clear decisions, move with intent, and execute — so they're first over the line when it matters.
+            </p>
+            <div class="hero-actions">
+                <a href="what-we-do.html" class="btn btn-primary">
+                    Explore Services
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="contact.html" class="btn btn-secondary">Start a Conversation</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="images/logo.png" alt="" class="hero-logo-graphic">
+        </div>
+    </section>
+
+    <!-- AI News Ticker Section -->
+    <section class="ai-ticker-section">
+        <div class="ai-ticker-container">
+            <div class="ai-ticker-header">
+                <div class="ai-ticker-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    <h2>AI News Feed</h2>
+                </div>
+                <div class="ai-live-indicator">
+                    <div class="ai-live-dot"></div>
+                    <span>Live</span>
+                </div>
+            </div>
+
+            <div class="ai-ticker-viewport">
+                <div class="ai-ticker-track" id="tickerTrack">
+                    <div class="ai-loading">
+                        <div class="ai-loading-spinner"></div>
+                        Loading latest AI news...
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-ticker-footer">
+                <div class="ai-ticker-controls">
+                    <button class="ai-control-btn" id="pauseBtn" title="Pause/Play">
+                        <svg viewBox="0 0 24 24" fill="currentColor" id="pauseIcon">
+                            <rect x="6" y="4" width="4" height="16"/>
+                            <rect x="14" y="4" width="4" height="16"/>
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor" id="playIcon" style="display: none;">
+                            <polygon points="5,3 19,12 5,21"/>
+                        </svg>
+                    </button>
+                    <button class="ai-control-btn" id="refreshBtn" title="Refresh">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6"/>
+                            <path d="M1 20v-6h6"/>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="ai-powered-by">
+                    Curated from top <span>AI sources</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="values">
+        <div class="container">
+            <div class="values-header">
+                <h2 class="section-title">What sets us apart</h2>
+                <p class="section-subtitle">Senior technology leadership that translates strategy into execution.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Strategic Clarity</h3>
+                    <p>Transform ambiguity into actionable roadmaps. We help leadership teams see through complexity and make confident decisions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Disciplined Execution</h3>
+                    <p>Strategy without execution is just theory. We build the operating models, governance, and accountability that make things happen.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Fractional Flexibility</h3>
+                    <p>Get CTO/CIO-level leadership when you need it, without the full-time overhead. Scale engagement up or down as your needs evolve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to move with intent?</h2>
+                <p>Let's talk about how we can help you make clear decisions and execute with discipline.</p>
+                <a href="contact.html" class="btn btn-primary btn-large">
+                    Start a Conversation
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="First Over the Line Strategies" class="footer-logo">
+                    <p class="footer-tagline">Strategy built to finish.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="what-we-do.html">What We Do</a></li>
+                            <li><a href="who-we-are.html">Who We Are</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="/cdn-cgi/l/email-protection#9dfef2f1f4f3ddfbf4efeee9f2ebf8efb3fcf4"><span class="__cf_email__" data-cfemail="35565a595c5b75535c4746415a4350471b545c">[email&#160;protected]</span></a></li>
+                            <li><a href="tel:+17402587151">(740) 258-7151</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 First Over the Line Strat
