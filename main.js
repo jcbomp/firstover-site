@@ -102,56 +102,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (tickerTrack) {
         let isPaused = false;
         
-        // Sample news data - In production, this would come from an RSS feed or API
-        const sampleNews = [
-            {
-                source: "MIT Tech Review",
-                headline: "New breakthrough in multimodal AI models shows unprecedented reasoning",
-                time: "2 hours ago",
-                url: "https://www.technologyreview.com/"
-            },
-            {
-                source: "The Verge",
-                headline: "OpenAI announces major updates to GPT architecture",
-                time: "4 hours ago",
-                url: "https://www.theverge.com/ai-artificial-intelligence"
-            },
-            {
-                source: "Wired",
-                headline: "How AI is transforming drug discovery and medical research",
-                time: "5 hours ago",
-                url: "https://www.wired.com/tag/artificial-intelligence/"
-            },
-            {
-                source: "Ars Technica",
-                headline: "Google DeepMind releases new open-source AI safety tools",
-                time: "6 hours ago",
-                url: "https://arstechnica.com/ai/"
-            },
-            {
-                source: "VentureBeat",
-                headline: "Enterprise AI adoption reaches new heights in 2025",
-                time: "8 hours ago",
-                url: "https://venturebeat.com/ai/"
-            },
-            {
-                source: "TechCrunch",
-                headline: "Anthropic raises new funding round for AI safety research",
-                time: "10 hours ago",
-                url: "https://techcrunch.com/category/artificial-intelligence/"
-            },
-            {
-                source: "Reuters",
-                headline: "EU passes comprehensive AI regulation framework",
-                time: "12 hours ago",
-                url: "https://www.reuters.com/technology/artificial-intelligence/"
-            },
-            {
-                source: "Bloomberg",
-                headline: "AI chip demand drives record semiconductor sales",
-                time: "14 hours ago",
-                url: "https://www.bloomberg.com/technology"
-            }
+        // RSS feeds to pull from (AI/Tech focused)
+        const rssFeeds = [
+            { url: 'https://www.wired.com/feed/tag/ai/latest/rss', source: 'Wired' },
+            { url: 'https://techcrunch.com/category/artificial-intelligence/feed/', source: 'TechCrunch' },
+            { url: 'https://feeds.arstechnica.com/arstechnica/technology-lab', source: 'Ars Technica' },
+            { url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', source: 'The Verge' }
+        ];
+        
+        // Fallback sample data in case feeds fail
+        const fallbackNews = [
+            { source: "AI News", headline: "Latest developments in artificial intelligence and machine learning", time: "Recently", url: "#" },
+            { source: "Tech Update", headline: "Enterprise AI adoption continues to accelerate across industries", time: "Recently", url: "#" },
+            { source: "AI Research", headline: "New breakthroughs in multimodal AI models show promise", time: "Recently", url: "#" }
         ];
 
         function createNewsItem(news) {
@@ -167,9 +130,71 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function renderNews(newsItems) {
+            if (newsItems.length === 0) {
+                newsItems = fallbackNews;
+            }
             // Double the items for seamless infinite scroll
             const allItems = [...newsItems, ...newsItems];
             tickerTrack.innerHTML = allItems.map(createNewsItem).join('');
+        }
+        
+        function getTimeAgo(dateString) {
+            const now = new Date();
+            const past = new Date(dateString);
+            const diffMs = now - past;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+            
+            if (diffMins < 60) return `${diffMins} min ago`;
+            if (diffHours < 24) return `${diffHours} hours ago`;
+            return `${diffDays} days ago`;
+        }
+        
+        async function fetchRSSFeed(feedUrl, sourceName) {
+            try {
+                const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                if (data.status === 'ok' && data.items) {
+                    return data.items.slice(0, 3).map(item => ({
+                        source: sourceName,
+                        headline: item.title,
+                        time: getTimeAgo(item.pubDate),
+                        url: item.link
+                    }));
+                }
+                return [];
+            } catch (error) {
+                console.error(`Error fetching ${sourceName}:`, error);
+                return [];
+            }
+        }
+        
+        async function fetchAllNews() {
+            tickerTrack.innerHTML = `
+                <div class="ai-loading">
+                    <div class="ai-loading-spinner"></div>
+                    Loading latest AI news...
+                </div>
+            `;
+            
+            try {
+                const allPromises = rssFeeds.map(feed => fetchRSSFeed(feed.url, feed.source));
+                const results = await Promise.all(allPromises);
+                
+                // Flatten and shuffle the results
+                let allNews = results.flat();
+                
+                // Shuffle to mix sources
+                allNews = allNews.sort(() => Math.random() - 0.5);
+                
+                renderNews(allNews);
+            } catch (error) {
+                console.error('Error fetching news:', error);
+                renderNews(fallbackNews);
+            }
         }
 
         function togglePause() {
@@ -181,26 +206,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        function refresh() {
-            tickerTrack.innerHTML = `
-                <div class="ai-loading">
-                    <div class="ai-loading-spinner"></div>
-                    Refreshing news...
-                </div>
-            `;
-            
-            // Simulate API call delay
-            setTimeout(() => {
-                renderNews(sampleNews);
-            }, 1000);
-        }
-
         // Event listeners
         if (pauseBtn) pauseBtn.addEventListener('click', togglePause);
-        if (refreshBtn) refreshBtn.addEventListener('click', refresh);
+        if (refreshBtn) refreshBtn.addEventListener('click', fetchAllNews);
 
-        // Initial render
-        renderNews(sampleNews);
+        // Initial fetch
+        fetchAllNews();
     }
 });
 

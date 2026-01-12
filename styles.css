@@ -1284,24 +1284,39 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
         padding: var(--space-md);
         gap: var(--space-sm);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        transform: translateY(-100%);
+        max-height: 0;
+        overflow: hidden;
         opacity: 0;
-        visibility: hidden;
-        transition: all var(--transition-base);
+        transition: all 0.3s ease;
+        z-index: 999;
     }
     
     .nav-links.active {
-        transform: translateY(0);
+        max-height: 400px;
         opacity: 1;
-        visibility: visible;
+        padding: var(--space-md);
     }
     
     .nav-toggle {
         display: flex;
+        z-index: 1000;
     }
     
     .nav-links a.active::after {
         display: none;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: var(--space-sm);
+    }
+    
+    .nav-cta {
+        text-align: center;
     }
     
     .hero {
